@@ -1,0 +1,95 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+body{
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  flex-direction:column;
+  background-color:#333;
+  height:100vh;
+  font-size:7.5vmin;
+}
+.game-board{
+  display:grid;
+  grid-template-columns: repeat(var(--grid-size),var(--cell-size));
+  grid-template-rows: repeat(var(--grid-size),var(--cell-size));
+  background:#CCC;
+  gap:var(--gap);
+  padding:var(--gap);
+  border-radius:5px;
+  position:relative;
+}
+.cell{
+  background:#AAA;
+  border-radius: 5px;
+}
+.tile{
+  position:absolute;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:var(--cell-size);
+  height:var(--cell-size);
+  border-radius:5px;
+  top:calc(var(--y) * 22vmin + var(--gap));
+  left:calc(var(--gap) + var(--x) * 22vmin);
+
+  font-weight:bold;
+  background:hsl(200,50%,var(--background-lightness));
+  color:hsl(200,25%,var(--text-lightness));
+  transition:100ms ease-in-out;
+  animation:show 200ms ease-in-out;
+}
+
+
+@keyframes show{
+  0%{
+    transform:scale(0);
+    opacity:0.5;
+  }
+}
+
+.control{
+  width:60vmin;
+  height:60vmin;
+  margin-top:2vmin;
+  display:grid;
+  grid-template-areas:  'a b c'
+                        'd e f'
+                        'h i j'
+  
+}
+.moveup{
+ grid-area:b; 
+}
+.movedown{
+  grid-area:i;
+}
+.moveright{
+  grid-area:f;
+}
+.moveleft{
+  grid-area:d;
+}
+.control div{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+
+.moveup svg:hover {
+  color:red;
+}
+.moveright svg:hover{
+  color:blue;
+}
+.movedown svg:hover{
+  color:green;
+}
+.moveleft svg:hover{
+  color:pink;
+}
