@@ -53,8 +53,8 @@ body{
 }
 
 .control{
-  width:60vmin;
-  height:60vmin;
+  width:min(60vmin , 300px);
+  height:min(60vmin , 300px);
   margin-top:2vmin;
   display:grid;
   grid-template-areas:  'a b c'
